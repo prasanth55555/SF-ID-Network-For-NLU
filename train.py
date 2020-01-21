@@ -75,10 +75,13 @@ full_train_path = os.path.join('./data', arg.dataset, arg.train_data_path)
 full_test_path = os.path.join('./data', arg.dataset, arg.test_data_path)
 full_valid_path = os.path.join('./data', arg.dataset, arg.valid_data_path)
 
-createVocabulary(os.path.join(full_train_path, arg.input_file), os.path.join(arg.vocab_path, 'in_vocab'))
-createVocabulary(os.path.join(full_train_path, arg.slot_file), os.path.join(arg.vocab_path, 'slot_vocab'))
-createVocabulary(os.path.join(full_train_path, arg.intent_file), os.path.join(arg.vocab_path, 'intent_vocab'),
-                 no_pad=True)
+print(full_train_path+arg.input_file)
+print(full_train_path+arg.slot_file)
+print(full_train_path+arg.intent_file)
+print(arg.vocab_path+ '/in_vocab')
+createVocabulary(os.path.join(full_train_path+"/"+arg.input_file), os.path.join(arg.vocab_path+ '/in_vocab'))
+createVocabulary(os.path.join(full_train_path+"/"+ arg.slot_file), os.path.join(arg.vocab_path+ '/slot_vocab'))
+createVocabulary(os.path.join(full_train_path+"/"+arg.intent_file), os.path.join(arg.vocab_path+ '/intent_vocab'),no_pad=True)
 
 in_vocab = loadVocabulary(os.path.join(arg.vocab_path, 'in_vocab'))
 slot_vocab = loadVocabulary(os.path.join(arg.vocab_path, 'slot_vocab'))
