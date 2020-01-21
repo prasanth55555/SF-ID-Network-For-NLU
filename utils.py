@@ -10,8 +10,7 @@ def createVocabulary(input_path, output_path, no_pad=False, no_unk=False):
         raise TypeError('output_path should be string')
 
     vocab = {}
-    with open(input_path, 'r') as fd, \
-            open(output_path, 'w+') as out:
+    with open(input_path, 'r') as fd, open(output_path, 'w+') as out:
         for line in fd:
             line = line.rstrip('\r\n')
             words = line.split()
